@@ -1,6 +1,6 @@
 #include "libft.h"
 
-char	ft_toupper(char c)
+int		ft_toupper(int c)
 {
 	if (c >= 'a' && c <= 'z')
 		return (c - 32);
