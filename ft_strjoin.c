@@ -14,14 +14,15 @@
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char *n;
-	size_t l1, l2, l3;
-	unsigned int i;
+	char			*n;
+	size_t			l1;
+	size_t			l2;
+	size_t			l3;
+	unsigned int	i;
 
 	l1 = ft_strlen(s1);
 	l2 = ft_strlen(s2);
 	l3 = l1 + l2;
-
 	n = malloc((l3 + 1) * sizeof(char));
 	i = 0;
 	if (!n)
@@ -37,6 +38,6 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		n[i + l1] = s2[i];
 		i++;
 	}
-    n[l3] = '\0';
-    return(n);
+	n[l3] = '\0';
+	return (n);
 }

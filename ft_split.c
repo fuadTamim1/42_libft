@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-size_t	count_words(const char *s, char c)
+static size_t	count_words(const char *s, char c)
 {
 	size_t	i;
 	size_t	count;
@@ -31,7 +31,7 @@ size_t	count_words(const char *s, char c)
 	return (count);
 }
 
-size_t	word_len(const char *s, char c)
+static size_t	word_len(const char *s, char c)
 {
 	size_t	i;
 
@@ -41,7 +41,7 @@ size_t	word_len(const char *s, char c)
 	return (i);
 }
 
-void	free_all(char **arr, size_t n)
+static void	free_all(char **arr, size_t n)
 {
 	size_t	i;
 
@@ -56,10 +56,12 @@ void	free_all(char **arr, size_t n)
 
 char	**ft_split(char const *s, char c)
 {
-	unsigned int i, j, o;
-	char *k;
-	char **arr;
-	size_t n;
+	unsigned int	i;
+	unsigned int	j;
+	unsigned int	o;
+	char			*k;
+	char			**arr;
+	size_t			n;
 
 	i = 0;
 	o = 0;
@@ -85,6 +87,5 @@ char	**ft_split(char const *s, char c)
 		i += j;
 	}
 	arr[n] = NULL;
-
 	return (arr);
 }
