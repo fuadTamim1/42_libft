@@ -6,7 +6,7 @@
 /*   By: ftamimi <ftamimi@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/04 18:07:42 by ftamimi           #+#    #+#             */
-/*   Updated: 2026/10/04 18:07:42 by ftamimi          ###   ########.fr       */
+/*   Updated: 2026/10/11 17:25:04 by ftamimi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,21 +54,16 @@ static void	free_all(char **arr, size_t n)
 	free(arr);
 }
 
-char	**ft_split(char const *s, char c)
+int	process_words(char const *s, char c, char **arr)
 {
 	unsigned int	i;
 	unsigned int	j;
 	unsigned int	o;
 	char			*k;
-	char			**arr;
-	size_t			n;
 
 	i = 0;
 	o = 0;
-	n = count_words(s, c);
-	arr = ft_calloc(n + 1, sizeof(char *));
-	if (!arr)
-		return (NULL);
+	j = 0;
 	while (s[i])
 	{
 		if (s[i] == c)
@@ -80,11 +75,27 @@ char	**ft_split(char const *s, char c)
 		k = ft_substr(s, i, j);
 		if (j == 0 || !k)
 		{
-			free_all(arr, n);
-			return (NULL);
+			return (0);
 		}
 		arr[o++] = k;
 		i += j;
+	}
+	return (1);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	char			**arr;
+	size_t			n;
+
+	n = count_words(s, c);
+	arr = ft_calloc(n + 1, sizeof(char *));
+	if (!arr)
+		return (NULL);
+	if (!process_words(s, c, arr))
+	{
+		free_all(arr, n);
+		return (NULL);
 	}
 	arr[n] = NULL;
 	return (arr);
