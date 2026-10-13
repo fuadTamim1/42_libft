@@ -54,7 +54,7 @@ static void	free_all(char **arr, size_t n)
 	free(arr);
 }
 
-int	process_words(char const *s, char c, char **arr)
+static int	process_words(char const *s, char c, char **arr)
 {
 	unsigned int	i;
 	unsigned int	j;
