@@ -38,7 +38,7 @@ Functions that are not in libc, or that work differently.
 | `ft_putendl_fd` | Writes a string followed by a newline to a file descriptor |
 | `ft_putnbr_fd` | Writes an int to a file descriptor, without allocating memory |
 
-### Linked lists
+### Part 3 — Linked lists
 
 The library includes a simple singly linked list:
 
