@@ -99,22 +99,11 @@ Then compile with the library:
 cc -Wall -Wextra -Werror main.c -L. -lft -o program
 ```
 
-### How I tested it
-
-I tested every function with my own test program (kept outside the repository). I built it with `-fsanitize=address` to catch memory errors and leaks, and checked the edge cases that usually break these functions:
-
-- empty strings and strings made only of delimiters (`ft_split`, `ft_strtrim`)
-- `start` past the end of the string and huge `len` values (`ft_substr`)
-- `0`, `INT_MAX` and `INT_MIN` (`ft_itoa`, `ft_putnbr_fd`)
-- a `malloc` failing halfway through, to make sure nothing leaks (`ft_split`, `ft_lstmap`)
-
 Every file was also checked with `norminette`.
 
 ## Resources
 
-- The Linux man pages for the original functions, e.g. `man 3 strlcpy`: https://man7.org/linux/man-pages/
-- The 42 Norm and norminette: https://github.com/42School/norminette
-- AddressSanitizer, used to find memory errors and leaks: https://github.com/google/sanitizers/wiki/AddressSanitizer
+- The Linux man pages for the original functions: https://man7.org/linux/man-pages/
 
 ### Use of AI
 
